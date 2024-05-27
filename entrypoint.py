@@ -42,4 +42,10 @@ def collect_engine_temperature():
     average_engine_temperature = round(sum(map(float, engine_temperature_values)) / len(engine_temperature_values), 2)
     logger.info(f"current_engine_temperature: {engine_temperature_values[0]}, average_engine_temperature: {average_engine_temperature}")
 
-    return {"current_engine_temperature": engine_temperature_values[0], "average_engine_temperature": average_engine_temperature}, 200
+    result = {
+        "current_engine_temperature": engine_temperature_values[0],
+        "average_engine_temperature": average_engine_temperature
+        }
+
+    logger.info("collect request successful")
+    return result, 200
